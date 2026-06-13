@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduMentor AI — Quality Education Assistant</title>
+  <meta name="description" content="An AI-powered educational assistant aligned with UN SDG 4: Quality Education. Features AI tutoring, quiz generation, and study planning." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <nav class="nav">
+      <div class="nav-logo">
+        <div class="logo-icon"><i class="ti ti-school"></i></div>
+        <span class="logo-text">EduMentor AI</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#app">Try It</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <div class="sdg-pill">🎓 Aligned with UN SDG 4 — Quality Education</div>
+      <h1 class="hero-title">Learn anything.<br />Understand everything.</h1>
+      <p class="hero-sub">EduMentor AI is your intelligent study companion — powered by Claude AI. Ask questions, generate quizzes, and build personalized study plans in seconds.</p>
+      <a href="#app" class="cta-btn">Start Learning <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">AI Tools</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Topics</span></div>
+      <div class="stat"><span class="stat-num">SDG 4</span><span class="stat-label">Aligned</span></div>
+    </div>
+  </header>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features" class="features-section">
+    <h2 class="section-title">Three AI tools, one goal</h2>
+    <p class="section-sub">Each tool uses the Claude API to give you intelligent, context-aware educational support.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon teal"><i class="ti ti-message-circle"></i></div>
+        <h3>AI Tutor</h3>
+        <p>Ask any question across any subject. Get clear, step-by-step explanations with examples — like having a personal professor available 24/7.</p>
+        <ul class="feature-list">
+          <li><i class="ti ti-check"></i> Multi-turn conversation memory</li>
+          <li><i class="ti ti-check"></i> Subject-specific context chips</li>
+          <li><i class="ti ti-check"></i> Follow-up questions suggested</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon purple"><i class="ti ti-help-circle"></i></div>
+        <h3>Quiz Maker</h3>
+        <p>Generate custom multiple-choice quizzes on any topic, difficulty level, and length. Test yourself and get instant explanations for every answer.</p>
+        <ul class="feature-list">
+          <li><i class="ti ti-check"></i> Beginner / Intermediate / Advanced</li>
+          <li><i class="ti ti-check"></i> Instant answer explanations</li>
+          <li><i class="ti ti-check"></i> Live score tracking</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon amber"><i class="ti ti-calendar"></i></div>
+        <h3>Study Planner</h3>
+        <p>Describe your exam, subjects, and available hours. Get a structured day-by-day study schedule built on spaced repetition principles.</p>
+        <ul class="feature-list">
+          <li><i class="ti ti-check"></i> Spaced repetition logic</li>
+          <li><i class="ti ti-check"></i> Deadline-aware scheduling</li>
+          <li><i class="ti ti-check"></i> Realistic daily session breakdown</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APP ===== -->
+  <section id="app" class="app-section">
+    <h2 class="section-title">Try EduMentor AI</h2>
+    <p class="section-sub">All three tools are live below. Powered by the Anthropic Claude API.</p>
+
+    <div class="app-container">
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true" onclick="switchTab('tutor', this)">
+          <i class="ti ti-message-circle"></i> AI Tutor
+        </button>
+        <button class="tab" role="tab" aria-selected="false" onclick="switchTab('quiz', this)">
+          <i class="ti ti-help-circle"></i> Quiz Maker
+        </button>
+        <button class="tab" role="tab" aria-selected="false" onclick="switchTab('planner', this)">
+          <i class="ti ti-calendar"></i> Study Planner
+        </button>
+      </div>
+
+      <!-- AI TUTOR -->
+      <div id="panel-tutor" class="panel active" role="tabpanel">
+        <div class="panel-header">
+          <span class="panel-label">Ask about any subject</span>
+        </div>
+        <div class="subject-chips">
+          <button class="chip" onclick="setTopic('Mathematics')">📐 Mathematics</button>
+          <button class="chip" onclick="setTopic('Physics')">⚛️ Physics</button>
+          <button class="chip" onclick="setTopic('Computer Science')">💻 Computer Science</button>
+          <button class="chip" onclick="setTopic('Biology')">🧬 Biology</button>
+          <button class="chip" onclick="setTopic('History')">📜 History</button>
+          <button class="chip" onclick="setTopic('Chemistry')">⚗️ Chemistry</button>
+          <button class="chip" onclick="setTopic('Economics')">📊 Economics</button>
+          <button class="chip" onclick="setTopic('Literature')">📚 Literature</button>
+        </div>
+        <div class="chat-box">
+          <div class="messages" id="messages">
+            <div class="msg ai">
+              <div class="msg-header"><i class="ti ti-brain"></i> EduMentor AI</div>
+              <div class="msg-body">Hello! I'm your AI tutor, powered by Claude. Ask me anything across any subject — I'll break it down with clear explanations and real examples. Click a subject chip above or type your question below.</div>
+            </div>
+          </div>
+          <div class="input-row">
+            <input type="text" id="tutor-input"
+              placeholder="e.g. Explain Newton's second law with an example..."
+              onkeydown="if(event.key==='Enter') sendTutorMsg()" />
+            <button class="send-btn" id="send-btn" onclick="sendTutorMsg()">
+              Ask <i class="ti ti-arrow-up"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUIZ MAKER -->
+      <div id="panel-quiz" class="panel" role="tabpanel">
+        <div class="quiz-config">
+          <div class="config-row">
+            <div class="config-field">
+              <label for="quiz-topic">Topic</label>
+              <input type="text" id="quiz-topic" placeholder="e.g. Photosynthesis, World War II, Calculus..." />
+            </div>
+            <div class="config-field narrow">
+              <label for="quiz-count">Questions</label>
+              <select id="quiz-count">
+                <option value="3">3</option>
+                <option value="5" selected>5</option>
+              </select>
+            </div>
+            <div class="config-field narrow">
+              <label for="quiz-diff">Difficulty</label>
+              <select id="quiz-diff">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate" selected>Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+            <button class="action-btn" id="gen-btn" onclick="generateQuiz()">
+              Generate <i class="ti ti-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div id="quiz-area" class="quiz-area">
+          <div class="empty-state">
+            <i class="ti ti-help-circle"></i>
+            <p>Fill in a topic above and generate your quiz</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDY PLANNER -->
+      <div id="panel-planner" class="panel" role="tabpanel">
+        <div class="planner-info-cards">
+          <div class="info-card">
+            <i class="ti ti-target"></i>
+            <div>
+              <strong>Goal-based</strong>
+              <p>Tell me your exam date, subjects, and available hours.</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="ti ti-repeat"></i>
+            <div>
+              <strong>Spaced repetition</strong>
+              <p>Plans are optimized with evidence-based revision intervals.</p>
+            </div>
+          </div>
+        </div>
+        <div class="planner-form">
+          <label class="panel-label" for="plan-input">Describe your study situation</label>
+          <textarea id="plan-input" rows="4"
+            placeholder="e.g. I have my Data Structures exam in 7 days. Topics: arrays, linked lists, trees, graphs. I can study 3 hours each evening..."></textarea>
+          <div class="form-footer">
+            <button class="action-btn" id="plan-btn" onclick="generatePlan()">
+              Create My Plan <i class="ti ti-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div id="plan-result"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="about" class="about-section">
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>You ask or configure</h3>
+          <p>Type a question, set quiz parameters, or describe your study schedule needs.</p>
+        </div>
+      </div>
+      <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Claude API responds</h3>
+          <p>Your input is sent to the Anthropic Claude API with a specialized educational system prompt.</p>
+        </div>
+      </div>
+      <div class="step-arrow"><i class="ti ti-arrow-right"></i></div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>You learn and act</h3>
+          <p>Receive structured explanations, interactive quizzes, or a personalized study plan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-stack">
+      <h3>Technology stack</h3>
+      <div class="tech-grid">
+        <div class="tech-item"><i class="ti ti-brand-html5"></i><span>HTML5 / CSS3</span></div>
+        <div class="tech-item"><i class="ti ti-brand-javascript"></i><span>Vanilla JS</span></div>
+        <div class="tech-item"><i class="ti ti-robot"></i><span>Anthropic Claude API</span></div>
+        <div class="tech-item"><i class="ti ti-brand-github"></i><span>GitHub Pages</span></div>
+      </div>
+    </div>
+
+    <div class="sdg-section">
+      <div class="sdg-icon">🎓</div>
+      <div>
+        <h3>UN Sustainable Development Goal 4</h3>
+        <p>EduMentor AI directly supports SDG 4 — Quality Education — by making intelligent, personalized learning accessible to anyone with an internet connection. No expensive tutors. No institutional barriers. Just learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>EduMentor AI — Built with the <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic Claude API</a> · Aligned with <a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noopener">UN SDG 4</a></p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
